@@ -4,7 +4,7 @@ void subseq(int arr[], int n, int dest[], int *new_n);
 
 
 int main(void){
-
+    // For some reason output is incorrect
     int n;
     scanf("%d", &n);
     int arr[n];
