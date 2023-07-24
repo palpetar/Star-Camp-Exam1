@@ -27,9 +27,7 @@ void subseq(int arr[], int n, int dest[], int *new_n){
         if(arr[i] == arr[i + 1] + 1){
             counter++;
         } else {
-            if(*new_n > counter){
-                continue;
-            } else {
+            if(*new_n < counter){
                 *new_n = counter;
                 counter = 0;
                 startindex = i - *new_n;
