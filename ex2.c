@@ -35,12 +35,12 @@ unsigned onesCount(uint64_t mask1, uint32_t mask2, uint16_t mask3, uint8_t mask4
         }
     }
     for(int i = 0; i < 16; i++){
-        if(mask3 & (0 << i)){
+        if(mask3 & (1 << i)){
             counter++;
         }
     }
     for(int i = 0; i < 8; i++){
-        if(mask4 & (0 << i)){
+        if(mask4 & (1 << i)){
             counter++;
         }
     }
