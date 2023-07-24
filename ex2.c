@@ -10,7 +10,8 @@ uint64_t removeBit(uint64_t mask, int bit);
 uint64_t setBit(uint64_t mask, int bit);
 
 int main(void){
-    uint64_t mask1 = 0b0101101;
+    // Code does not work
+    uint64_t mask1 = 0b0000011;
     uint32_t mask2 = 0b0001;
     uint16_t mask3 = 0b001;
     uint8_t mask4 = 0b001;
@@ -24,22 +25,22 @@ int main(void){
 unsigned onesCount(uint64_t mask1, uint32_t mask2, uint16_t mask3, uint8_t mask4){
     int counter = 0;
     for(int i = 0; i < 64; i++){
-        if((mask1<<i) == 1){
+        if(mask1 & (1 << i)){
             counter++;
         }
     }
     for(int i = 0; i < 32; i++){
-        if((mask2<<i) == 1){
+        if(mask2 & (1 << i)){
             counter++;
         }
     }
     for(int i = 0; i < 16; i++){
-        if((mask3<<i) == 1){
+        if(mask3 & (0 << i)){
             counter++;
         }
     }
     for(int i = 0; i < 8; i++){
-        if((mask4<<i) == 1){
+        if(mask4 & (0 << i)){
             counter++;
         }
     }
