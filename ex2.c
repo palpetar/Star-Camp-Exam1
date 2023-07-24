@@ -50,9 +50,9 @@ unsigned onesCount(uint64_t mask1, uint32_t mask2, uint16_t mask3, uint8_t mask4
 void flipOddBits(uint64_t* mask){
     for(int i = 1; i < 64; i += 2){
         if(checkBit(*mask, i) == 1){
-            removeBit(*mask, i);
+            *mask = removeBit(*mask, i);
         } else {
-            setBit(*mask, i);
+            *mask = setBit(*mask, i);
         }
     }
 }
