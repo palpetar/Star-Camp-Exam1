@@ -5,7 +5,7 @@
 
 typedef struct S{
     char *values;
-    int current;
+    size_t current;
 } S;
 
 S init_array(){
@@ -57,13 +57,13 @@ void add(S *arr, char c){
 }
 
 void init_string(S *arr, char *input){
-    for(int i = 0; i < strlen(input); i++){
+    for(size_t i = 0; i < strlen(input); i++){
         add(arr, input[i]);
     }
 }
 
 void print_elems(S arr){
-    for(int i = 0; i < arr.current; i++){
+    for(size_t i = 0; i < arr.current; i++){
         printf("%c", arr.values[i]);
     }
     printf("\n");
@@ -72,7 +72,8 @@ void print_elems(S arr){
 int main(void){
 
     S arr = init_array();
-    init_string(&arr, "testing");
+    char *s = "testing";
+    init_string(&arr, s);
     print_elems(arr);
 
     return 0;
