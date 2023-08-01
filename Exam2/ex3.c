@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <stdlib.h>
 
 int contains_char(const char *str, char c){
     while(*str != '\0'){
@@ -14,7 +14,7 @@ int contains_char(const char *str, char c){
 
 void convert_add(char *str, double *sum){
     if(contains_char(str, '.') == 0){
-        *sum += strtof(str);
+        *sum += strtof(str, NULL);
     } else if(contains_char(str, 'x') == 0 || contains_char(str, 'X') == 0){
         str += 2;
         *sum += strtoul(str, NULL, 16);
