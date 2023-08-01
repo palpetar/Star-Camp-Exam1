@@ -2,79 +2,74 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-typedef struct S{
-    char *values;
-    size_t current;
-} S;
-
-S init_array(){
-    S arr;
-    arr.values = calloc(500, sizeof(S));
-    arr.current = 0;
-    return arr;
-    printf("init\n");
-}
-
-void add(S *arr, char c){
-    if(arr -> current % 2 == 0){
-        arr -> values[arr -> current] = c + ('A' - '0');
-    } else {
-        switch(c){
-            case '0':
-                arr -> values[arr -> current] = '!';
-                break;
-            case '1':
-                arr -> values[arr -> current] = '#';
-                break;
-            case '2':
-                arr -> values[arr -> current] = '/';
-                break;
-            case '3':
-                arr -> values[arr -> current] = '-';
-                break;
-            case '4':
-                arr -> values[arr -> current] = '=';
-                break;
-            case '5':
-                arr -> values[arr -> current] = '\'';
-                break;
-            case '6':
-                arr -> values[arr -> current] = '\\';
-                break;
-            case '7':
-                arr -> values[arr -> current] = '>';
-                break;
-            case '8':
-                arr -> values[arr -> current] = '.';
-                break;
-            case '9':
-                arr -> values[arr -> current] = ',';
-                break;
-        }
-    }
-    arr -> current++;
-}
-
-void init_string(S *arr, char *input){
-    for(size_t i = 0; i < strlen(input); i++){
-        add(arr, input[i]);
+void add_even(char *arr, char c, int i){
+    switch(c){
+        case '0':
+            arr[i] = '!';
+            break;
+        case '1':
+            arr[i] = '#';
+            break;
+        case '2':
+            arr[i] = '/';
+            break;
+        case '3':
+            arr[i] = '-';
+            break;
+        case '4':
+            arr[i] = '=';
+            break;
+        case '5':
+            arr[i] = '\'';
+            break;
+        case '6':
+            arr[i] = '\\';
+            break;
+        case '7':
+            arr[i] = '>';
+            break;
+        case '8':
+            arr[i] = '.';
+            break;
+        case '9':
+            arr[i] = ',';
+            break;
     }
 }
 
-void print_elems(S arr){
-    for(size_t i = 0; i < arr.current; i++){
-        printf("%c", arr.values[i]);
+void add_odd(char *arr, char c, int i){
+    arr[i] = c + ('A' - '0');
+}
+
+void print_elems(char *s){
+    while(*s != 0){
+        printf("%c", *s);
+        s++;
     }
     printf("\n");
 }
 
 int main(void){
 
-    S arr = init_array();
-    char *s = "testing";
-    init_string(&arr, s);
+    char *input[500];
+    scanf("%s", input);
+    char *arr = calloc(500, sizeof(char));
+
+
+    int counter = 0;
+    while(*input != '\0'){
+        if(counter % 2 == 0){
+            add_even(arr, *input, counter);
+        } else{
+            add_odd(arr, *input, counter);
+        }
+        counter++;
+        input++;
+    }
+    arr[counter] = 0;
+    print_elems(input);
     print_elems(arr);
 
+    free(arr);
     return 0;
 }
