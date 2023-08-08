@@ -14,9 +14,6 @@ typedef struct Product
      char product_name[11];  
 } Product;
 
-
-
-
 void swap(Product *a, Product *b){
     Product temp = *a;
     *a = *b;
@@ -106,7 +103,7 @@ int main(void){
         arr[i].product_type = TYPES_ALLOWED[rand()%strlen(TYPES_ALLOWED)];
         strcpy(arr[i].product_name, POSSIBLE_NAMES[rand()%5]);
     }
-    printf("Before sort:\n\n");
+    printf("\nBefore sort:\n\n");
     for (int i = 0; i < 40; i++) {
         printf("ID: %d, Type: %c, Name: %s, Old Price: %.2lf, New Price: %.2lf\n", arr[i].id, arr[i].product_type, arr[i].product_name, arr[i].old_price, arr[i].new_price);
     }
