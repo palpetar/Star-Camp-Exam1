@@ -13,6 +13,14 @@ void hex_dump(FILE *file){
 
 void binary_dump(FILE *file){
     
+    char current;
+    while((current = getc(file)) != EOF){
+        for( int i = 7; i >= 0; i-- ) {
+            printf( "%d", ( current >> i ) & 1 ? 1 : 0 );
+        }
+        printf(" ");
+    }
+    printf("\n");
 }
 
 int main(int argc, char* argv[]){
