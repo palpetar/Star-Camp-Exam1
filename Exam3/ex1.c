@@ -35,5 +35,7 @@ int main(int argc, char* argv[]){
         binary_dump(file);
     }
 
+    fclose(file);
+
     return 0;
 }
