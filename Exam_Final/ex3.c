@@ -72,6 +72,7 @@ int main(void){
                 //printf("%s", token);
                 current_arg -> arr[counter++] = atoi(token);
             }
+            token = strtok(NULL, delim);
         }
         current_arg -> index = i;
         current_arg -> size = counter;
@@ -81,7 +82,7 @@ int main(void){
     char *filename;
     scanf("%s", filename);
 
-    for(int i = 0; i < m; i++){
+    for(int i = 0; i < n; i++){
         arguments[i].filename = filename;
     }
     
