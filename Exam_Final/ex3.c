@@ -69,7 +69,7 @@ int main(void){
         int counter = 0;
         while(token != NULL){
             if(atoi(token) != 0 && atoi(token) != i) {
-                printf("%s", token);
+                //printf("%s", token);
                 current_arg -> arr[counter++] = atoi(token);
             }
         }
