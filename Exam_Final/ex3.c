@@ -59,16 +59,19 @@ int main(void){
     scanf("%d %d", &n, &m);
 
     arg_t *arguments = malloc(sizeof(arg_t) * n);
-
     for(int i = 0; i < n ; i++){
         arg_t *current_arg = malloc(sizeof(arg_t));
         char buf[256];
         fgets(buf, 256, stdin);
         const char *delim = " ";
         char *token = strtok(buf, delim);
+        
         int counter = 0;
-        while(token != NULL && atoi(token) != 0 && atoi(token) != i){
-            current_arg -> arr[counter++] = atoi(token);
+        while(token != NULL){
+            if(atoi(token) != 0 && atoi(token) != i) {
+                printf("%s", token);
+                current_arg -> arr[counter++] = atoi(token);
+            }
         }
         current_arg -> index = i;
         current_arg -> size = counter;
